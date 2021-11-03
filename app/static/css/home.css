@@ -1,0 +1,41 @@
+    .button_sing_up {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #ff000080;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    padding: 20px 104px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: spartan medium;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 400px;
+    left: 200px;
+    font-size: 30px;
+    }
+
+    .button_login {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #ff000080;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    padding: 20px 114px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: spartan medium;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 300px;
+    left: 200px;
+    font-size: 30px;
+    }

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/how_it_works.css') }}">
+
+{% endblock %}
+
+{% block content %}
+<style>
+        body
+        {
+        background-repeat: no repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-image: url({{ url_for('static', filename="images/background_how_it_works.jpg") }})
+        }
+</style>
+<form action="#" method="post">
+    <div class="block"></div>
+
+    <div class="head">
+        <center>
+            <h1>How it works</h1>
+        </center>
+    </div>
+
+    <div class="text">
+        <p>
+            WhatToWatch is an app that helps you choose a movie randomly,
+            based on only three criteria.
+            <br><br>
+            Step 1.<br>
+            Choose the genre of the movie you would like to watch
+            <br><br>
+            Step 2.<br>
+            Choose the time period that interests you
+            <br><br>
+            Step 3.<br>
+            Select whether you want the searched movie to have an Oscar award
+            <br><br>
+            Step 4.<br>
+            Press >> Search <<
+            <br><br>
+            OR
+            <br><br>
+            Press >> Shuffle <<<br>
+            - application will randomly select the first three steps!
+        </p>
+    </div>
+
+<button type='button' class="previous" onclick="history.back()">&#8249;</button>
+</form>
+{% endblock %}

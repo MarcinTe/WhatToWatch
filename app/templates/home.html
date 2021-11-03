@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    background-repeat: no repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url({{ url_for('static', filename="images/background.jpg") }})
+    }
+</style>
+
+    <button type='button' name='sing_up' class="button_sing_up" onclick="location.href='/sing_up'">sign up</button>
+    <button type='button' name='login' class="button_login" onclick="location.href='/login'">login</button>
+
+{% endblock %}
