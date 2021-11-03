@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/sign_up.css') }}">
+{% endblock %}
+
+{% block content %}
+<style>
+        body
+        {
+        background-repeat: no repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-image: url({{ url_for('static', filename="images/background_singup.jpg") }})
+        }
+</style>
+
+<form action="#" method="post">
+    <div class="head">
+        <center>
+            <h1>Registration</h1>
+        </center>
+    </div>
+
+    <div class="name">
+        <label for="Name"><b>Name</b></label>
+        <br>
+        <input type="text" style="font-size:12pt;height:25px;width:200px;" name="name" placeholder="Enter your name" id="name">
+    </div>
+
+    <div class="email">
+        <label for="Email"><b>Email</b></label>
+        <br>
+        <input type="email" style="font-size:12pt;height:25px;width:200px;" name="email" placeholder="Enter your email" id="email">
+    </div>
+
+    <div class="password">
+        <label for="Password"><b>Password</b></label>
+        <br>
+        <input type="password" style="font-size:12pt;height:25px;width:200px;" name="password" placeholder="Enter your password" id="password">
+    </div>
+
+    <button type="submit" class="button">Sign Up!</button>
+</form>
+<div class="flash">
+{% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endwith %}
+</div>
+
+{% endblock %}

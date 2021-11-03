@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/settings.css') }}">
+{% endblock %}
+
+{% block script %}
+
+<script>
+      const categories = [
+                "Action",
+                "Adventure",
+                "Animation",
+                "Biography",
+                "Comedy",
+                "Crime",
+                "Documentary",
+                "Drama",
+                "Family",
+                "Fantasy",
+                "Film-noir",
+                "History",
+                "Horror",
+                "Music",
+                "Musical",
+                "Mystery",
+                "Romance",
+                "Sci-fi",
+                "Sport",
+                "Thriller",
+                "War",
+                "Western"
+        ]
+
+        const time_intervals = [
+            "1950 - 1960",
+            "1960 - 1970",
+            "1970 - 1980",
+            "1980 - 1990",
+            "1990 - 2000",
+            "2000 - 2010",
+            "2010 - 2020",
+            "2020 - 2030"
+        ]
+
+        const is_awarded = [ 'Yes', 'No' ]
+
+        function addCategories(){
+            let selectCategory = document.getElementById('category');
+            categories.forEach(value => {
+                let opt = document.createElement('option');
+                opt.value = value;
+                opt.innerHTML = value;
+                selectCategory.appendChild(opt);
+            });
+        }
+
+        function addIntervals(){
+            let selectTimeInterval = document.getElementById('time_interval');
+            time_intervals.forEach(value => {
+                let opt = document.createElement('option');
+                opt.value = value;
+                opt.innerHTML = value;
+                selectTimeInterval.appendChild(opt);
+            });
+        }
+
+        function addAwarded(){
+              let selectOscar = document.getElementById('oscar');
+            is_awarded.forEach(value => {
+                let opt = document.createElement('option');
+                opt.value = value;
+                opt.innerHTML = value;
+                selectOscar.appendChild(opt);
+            });
+        }
+
+        function shuffle(){
+            shuffleCategory();
+            shuffleTime();
+            shuffleOscar();
+        }
+
+        function shuffleCategory(){
+            let selectCategory = document.getElementById('category');
+            selectCategory.value = categories[Math.floor(Math.random()*categories.length)];
+        }
+
+        function shuffleTime(){
+            let selectTime = document.getElementById('time_interval');
+            selectTime.value = time_intervals[Math.floor(Math.random()*time_intervals.length)];
+        }
+
+        function shuffleOscar(){
+            let selectOscar = document.getElementById('oscar');
+            selectOscar.value = is_awarded[Math.floor(Math.random()*is_awarded.length)];
+        }
+
+
+
+        window.onload = function(){
+            addCategories();
+            addIntervals();
+            addAwarded();
+        };
+
+
+</script>
+{% endblock %}
+
+{% block content %}
+<style>
+        body
+        {
+        background-repeat: no repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-image: url({{ url_for('static', filename="images/background_settings.jpg") }})
+        }
+
+</style>
+
+<form action="#" id="movie_form" method="POST">
+    <div class="block"></div>
+    <div class="block2"></div>
+    <div class="block3"></div>
+    <div class="block4"></div>
+    <div class="category">
+        <center>
+            <label for="category">Category:</label> <br>
+            <select id="category" name="category" style="font-size:13pt;height:30px;width:280px;" form="movie_form">
+
+            </select>
+        </center>
+    </div>
+
+    <div class="time_interval">
+        <center>
+            <label for="time_interval">Time interval:</label> <br>
+            <select id="time_interval" name="time_interval" style="font-size:13pt;height:30px;width:280px;"
+                    form="movie_form">
+            </select>
+        </center>
+    </div>
+
+    <div class="oscar">
+        <center>
+            <label for="oscar">Oscar:</label> <br>
+            <select id="oscar" name="oscar" style="font-size:13pt;height:30px;width:280px;" form="movie_form">
+
+            </select>
+        </center>
+    </div>
+    <div class="head">
+        <p>Set your preferences</p>
+    </div>
+
+    <a onclick="shuffle()" class="shuffle">Shuffle!</a>
+    <button type="submit" class="search">Search!</button>
+
+</form>
+
+{% endblock %}

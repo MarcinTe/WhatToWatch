@@ -1,0 +1,94 @@
+        .head {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background-color: #ff000080;
+        border-radius: 100px;
+        color: white;
+        padding: 20px 300px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: spartan medium;
+        font-size: 20px;
+        margin: 4px 2px;
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .name {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background-color: #ff000080;
+        border-radius: 100px;
+        color: white;
+        padding: 20px 100px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: spartan medium;
+        font-size: 20px;
+        margin: 4px 2px;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+        .email {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+         background-color: #ff000080;
+        border-radius: 100px;
+        color: white;
+        padding: 20px 100px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: spartan medium;
+        font-size: 20px;
+        margin: 4px 2px;
+        position: fixed;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        .password {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background-color: #ff000080;
+        padding: 20px 95px;
+        border-radius: 100px;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: spartan medium;
+        font-size: 20px;
+        margin: 4px 2px;
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        .button {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background-color: #ff000080;
+        border-radius: 100px;
+        border: none;
+        color: white;
+        padding: 20px 50px;
+        font-size: 20px;
+        font-family: spartan medium;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 1s;
+        position: fixed;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        .flash{
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: spartan medium;
+        }

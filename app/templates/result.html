@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+    background-repeat: no repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url({{ url_for('static', filename="images/background_result.jpg") }})
+    }
+</style>
+
+<form action="#" method="post">
+    <div class="block"></div>
+    <div class="movie">
+        <h1>
+            Your movie:
+            <br>
+            <br>
+            {{ movie_choice }}
+        </h1>
+    </div>
+    <button type='button' class="previous" onclick="history.back()">&#8249; Previous page</button>
+</form>
+
+
+{% endblock %}
