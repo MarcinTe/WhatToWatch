@@ -1,9 +1,10 @@
 import random
 from flask import render_template, redirect, url_for, Blueprint, request, session, flash
 from .models import Users, Genre, MovieGenre, Movies
-from . import db
+from . import db, bcrypt, login_manager
 from datetime import date
 import datetime
+from flask_login import login_user, login_required, current_user
 
 home_blueprint = Blueprint('home_blueprint', __name__)
 sing_up_blueprint = Blueprint('sing_up_blueprint', __name__)
@@ -14,13 +15,18 @@ how_it_works_blueprint = Blueprint('how_it_works_blueprint', __name__)
 result_blueprint = Blueprint('result_blueprint', __name__)
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(user_id)
+
+
 @home_blueprint.route("/", methods=['POST', 'GET'])
 def home():
     return render_template('home.html')
 
 
 @sing_up_blueprint.route('/sing_up', methods=['POST', 'GET'])
-def sing_up():
+def sign_up():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -47,25 +53,28 @@ def login():
         name = request.form.get('name')
         password = request.form.get('password')
         session.update({'name': request.form['name']})
-        found_user = Users.query.filter_by(name=name, password=password).first()
-        if found_user:
-            return redirect(url_for('account_blueprint.account', name=name))
+        found_user = Users.query.filter_by(name=name).first()
+        if bcrypt.check_password_hash(found_user.password, password):
+            login_user(found_user)
+            return redirect(url_for('account_blueprint.account'))
 
     return render_template('login.html')
 
 
 @account_blueprint.route('/account', methods=['POST', 'GET'])
+@login_required
 def account():
     current_data = datetime.datetime.today()
     name = session.get('name')
     user = Users.query.filter_by(name=name).first()
     register = user.register_data
     dif = current_data - register
-    name = request.args['name']
+    name = current_user.name
     return render_template('account.html', name=name, dif=dif)
 
 
 @settings_blueprint.route('/settings', methods=['POST', 'GET'])
+@login_required
 def settings():
     if request.method == 'POST':
         genre_form = request.form['category']
@@ -102,11 +111,13 @@ def settings():
 
 
 @result_blueprint.route('/result', methods=['POST', 'GET'])
+@login_required
 def result():
     movie_choice = request.args['movie_choice']
     return render_template('result.html', movie_choice=movie_choice)
 
 
 @how_it_works_blueprint.route('/how_it_works', methods=['POST', 'GET'])
+@login_required
 def how_it_works():
     return render_template('how_it_works.html')

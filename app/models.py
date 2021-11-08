@@ -1,16 +1,22 @@
-from . import db
+from . import db, bcrypt
+from flask_login import UserMixin
 
-
-class Users(db.Model):
+class Users(db.Model, UserMixin):
     _id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(50))
     register_data = db.Column(db.DateTime, nullable=False)
 
-    def __init__(self, name, email, password, register_data):
-        self.name, self.email, self.password, self.register_data = name, email, password, register_data
+    def __hash_password(self, password):
+        return bcrypt.generate_password_hash(password)
 
+    def __init__(self, name, email, password, register_data):
+        self.name, self.email, self.password, self.register_data = name, email, self.__hash_password(password), \
+                                                                   register_data
+
+    def get_id(self):
+        return self._id
 
 class Genre(db.Model):
     __tablename__ = "genre"
