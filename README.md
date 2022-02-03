@@ -7,7 +7,7 @@
 ## General info
 WhatToWatch is:
 <ul>
-  <li>an app witch provide random movie recomendation based on user preferences. </li>
+  <li>an app which provide random movie recomendation based on user preferences. </li>
   <li>providing the outcome based on IMDB API (in test version 500 movies were uploaded)</li>
 </ul>
 
