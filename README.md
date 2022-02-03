@@ -16,7 +16,7 @@ WhatToWatch is:
 <ul>
 <li>Python</li>
   <li>Flask</li>
-  <li>SQL</li>
+  <li>SQLAlchemy</li>
   <li>HTML</li>
   <li>CSS</li>
   <li>JavaScript</li>
